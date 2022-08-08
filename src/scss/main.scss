@@ -1,29 +1,6 @@
-/* 
-==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
-==============================================
-
-TABLE OF CONTENTS:
-
-0. Reset
-1. Main Layout
-2. Content
-
-==============================================
-*/
-
-/* 0. Reset ================================= */
-
-/* 
-If you want to add partials, use Sass Modules via @use:
-@use 'variables';
-
-Usage: partial-name.variable/mixin/function-name:
-background: variables.$primary-color;
-*/
-
 @use 'reset';
+@use 'variables';
+@use 'mixins';
 
 /* 1. Main Layout ================================= */
 
@@ -32,86 +9,506 @@ background: variables.$primary-color;
 }
 
 body {
-	background: rgb(46, 48, 50);
-}
+	background: white;
+	font-family: 'Jost', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	// padding: 0 1.875rem;
 
-/* 2. Content ================================= */
+	.big-top-nav{
+		display: flex;
+		padding: 0 1.875rem;
 
-.floating-box {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
-
-	.foreground {
-		position: relative;
-		z-index: 2;
-		transform: translateZ(100px);
-	}
-
-	.background {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: white;
-		z-index: 1;
-		// perspective: 2000px;
-		transition: 0.2s;
-		transform: translateX(20px) perspective(600px) rotateY(15deg);
-	}
-
-	&:hover .background {
-		transform: translateX(-30px) perspective(600px) rotateY(-15deg);
-	}
-
-	.logo {
-		position: absolute;
-		top: -30px;
-		width: 60px;
-		z-index: 2;
-		transform: translateZ(100px);
-		transition: 0.3s;
-
-		&:hover {
-			transform: rotate(-0.4turn);
+		@include mixins.bp-large{
+			justify-content: space-between;
+			align-items: baseline;
 		}
-	}
 
-	h1 {
-		font-weight: 700;
-		font-size: 22pt;
-		margin: 15px 0;
-	}
+		.nav-img{
+			display: flex;
+			align-items: baseline;
 
-	p {
-		color: #777;
-		// margin: 10px 0;
-		line-height: 140%;
-	}
+        	h1{
+				font-weight: 600;
+				font-size: 1.5rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding-left: 1rem;
+				padding-top: 2.5rem;
+				padding-bottom: 1.483rem;
+			}
 
-	p.github {
-		font-size: 0.8em;
+			a{
 
-		a {
-			opacity: 0.2;
-			transition: 0.3s;
+				img{
+					width: 100%;
+				}
 
-			&:hover {
-				opacity: 1;
-				color: red;
+			}
+		}
+
+		.nav-bar{
+			display: none;
+
+			@include mixins.bp-large{
+				display: flex;
+
+			}
+			
+			li{
+				a{
+					text-decoration: none;
+					color: variables.$black;
+					text-transform: uppercase;
+					padding-left: 2rem;
+				}
 			}
 		}
 	}
 
-	code {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-size: 0.8em;
-		opacity: 0.2;
+	.synergistic{
+		position: relative;
+		background-color: variables.$love;
+		width: 100%;
+		padding: 0 1.875rem;
+		padding-bottom: 30rem;
+		overflow: hidden;
+
+		@include mixins.bp-large{
+			position: relative;
+			margin-top: 4.375rem;
+			padding: 9.063rem 33.75rem 9.063rem 5.938rem;
+			padding-bottom: 5rem;
+			background-color: variables.$love;
+			border-radius: 15px;
+		}
+
+		h2{
+			padding-top: 2.188rem;
+			font-weight: 500;
+			font-size: 2.6rem;
+			letter-spacing: 2px;
+			color: variables.$white;
+			line-height: 1.1;
+		}
+
+		p{
+			padding-top: 2.188rem;
+			color: variables.$white;
+			font-size: 2rem;
+			line-height: 1.5;
+		}
+
+		button{
+			background-color: variables.$white;
+			border-radius: 10px;
+			border: none;
+			padding: 1.375rem;
+			margin-top: 2rem;
+			float: right;
+			margin-bottom: 3.5rem;
+
+			@include mixins.bp-large{
+				float: left;
+			}
+
+			a{
+				text-decoration: none;
+				color: variables.$black;
+				font-size: 1.5rem;
+				letter-spacing: 2px;
+			}
+		}
+
+		img{
+			position: absolute;
+			transform: rotate(10deg);
+			top: 60%;
+			left: 17%;
+			// height: 34rem;
+		// 	padding-left: 3.5rem;
+		// 	object-fit: contain;
+			// display: none;
+
+			@include mixins.bp-large{
+				position: absolute;
+				overflow: hidden;
+				top: 15%;
+				left: 70%;
+				transform: rotate(10deg);
+			}
+		}
+	}
+
+	.wag{
+		text-align: center;
+		font-size: 1.25rem;
+		padding: 0 1.875rem;
+		padding-top: 2.5rem;
+		padding-bottom: 6rem;
+		text-transform: uppercase;
+
+		@include mixins.bp-large{
+			display: grid;
+			grid-template-areas: 
+			"web app"
+			"web graphic";
+			gap: 1.5rem;
+		}
+
+		.design{
+
+			span{
+				color: red;
+			}
+		}
+
+		.web{
+			background-image: url(/dist/img/web-design.svg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 15px;
+			padding: 6.5rem;
+			margin-bottom: 1.25rem;
+			color: variables.$white;
+
+			@include mixins.bp-large{
+				grid-area: web;
+				padding-top: 16rem;
+			}
+
+			h3{
+				padding-bottom: 2.5rem;
+				font-size: 2.3rem;
+			}
+
+			a{
+				text-decoration: none;
+				color: variables.$white;
+				font-size: 1rem;
+			}
+		}
+
+		.app{
+			background-image: url(/dist/img/app-design.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 15px;
+			padding: 6.5rem;
+			margin-bottom: 1.25rem;
+			color: variables.$white;
+
+			@include mixins.bp-large{
+				grid-area: app;
+			}
+
+			h3{
+				padding-bottom: 2.5rem;
+				font-size: 2.3rem;
+			}
+
+			a{
+				text-decoration: none;
+				color: variables.$white;
+				font-size: 1rem;
+			}
+		}
+
+		.graphic{
+			background-image: url(/dist/img/graphic-design.svg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 15px;
+			padding: 6.5rem;
+			margin-bottom: 1.25rem;
+			color: variables.$white;
+
+			@include mixins.bp-large{
+				grid-area: graphic;
+			}
+
+			h3{
+				padding-bottom: 2.5rem;
+				font-size: 2.3rem;
+			}
+
+			a{
+				text-decoration: none;
+				color: variables.$white;
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.frh{
+		text-align: center;
+		padding: 0 1.875rem;
+
+		@include mixins.bp-large{
+			display: flex;
+			align-items: baseline;
+		}
+
+		.facilitation{
+			padding-bottom: 2rem;
+
+			h4{
+				font-size: 1.25rem;
+				letter-spacing: 5px;
+				text-transform: uppercase;
+				padding-top: 1.25rem;
+				padding-bottom: 2rem;
+			}
+
+			p{
+				line-height: 1.625;
+			}
+			
+		}
+
+		.reinvention{
+			padding-bottom: 2rem;
+
+			h4{
+				font-size: 1.25rem;
+				letter-spacing: 5px;
+				text-transform: uppercase;
+				padding-top: 1.25rem;
+				padding-bottom: 2rem;
+			}
+
+			p{
+				line-height: 1.625;
+			}
+		}
+
+		.handshakefulness{
+			padding-bottom: 2rem;
+
+			h4{
+				font-size: 1.25rem;
+				letter-spacing: 5px;
+				text-transform: uppercase;
+				padding-top: 1.25rem;
+				padding-bottom: 2rem;
+			}
+
+			p{
+				line-height: 1.625;
+				margin-bottom: 23.438rem;
+			}
+		}
+	}
+
+	footer{
+		position: relative;
+		background-color: variables.$black;
+
+		.innovation{
+			position: absolute;
+			top: -25%;
+			text-align: center;
+			background-color: variables.$love;
+			border-radius: 15px;
+			padding: 3.125rem 1.875rem;
+			margin: 0% 3%;
+			color: variables.$white;
+
+			@include mixins.bp-large{
+				display: flex;
+				padding: 4.5rem;
+				top: -30%;
+			}
+
+			h2{
+				font-size: 3rem;
+				padding-bottom: 2.5rem;
+				
+				@include mixins.bp-large{
+					font-size: 4rem;
+					text-align: left;
+				}
+			}
+
+			p{
+				font-size: 1.3rem;
+				padding-bottom: 3.125rem;
+				line-height: 1.563;
+
+				@include mixins.bp-large{
+					text-align: left;
+					font-size: 1.7rem;
+				}
+			}
+
+			button{
+				background-color: variables.$white;
+				border-radius: 10px;
+				border: none;
+				padding: 1.375rem;
+				margin-top: 2rem;
+
+				@include mixins.bp-large{
+					margin-left: 22.5rem;
+					justify-content: center;
+				}
+
+				a{
+					text-decoration: none;
+					color: variables.$black;
+					font-size: 1.5rem;
+					letter-spacing: 2px;
+				}
+			}
+		}
+
+		.footer-content{
+			padding: 0 1.875rem;
+			padding-top: 14.688rem;
+			padding-bottom: 4.063rem;
+			
+			.big-top-footer-nav{
+				padding-top: 4.366rem;
+				align-self: center;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				@include mixins.bp-large{
+					flex-direction: row;
+					justify-content: space-between;
+					align-items: baseline;
+				}
+
+				.nav-logo{
+					display: flex;
+					align-items: baseline;
+					border-bottom: 1px solid variables.$light-grey;
+					padding: 2rem 3rem;
+
+					h1{
+						text-transform: uppercase;
+						color: variables.$light-grey;
+						margin-left: 1.563rem;
+						font-size: 1.563rem;
+						letter-spacing: 5px;
+					}
+				}
+
+				.nav-bar{
+					padding-top: 2rem;
+					padding-bottom: 2rem;
+
+					@include mixins.bp-large{
+						display: flex;
+					}
+
+					li{
+						padding-bottom: 2.188rem;
+					}
+
+					a{
+						text-decoration: none;
+						color: variables.$white;
+						text-transform: uppercase;
+						font-size: 1.1rem;
+						letter-spacing: 3px;
+
+						@include mixins.bp-large{
+							text-decoration: none;
+							color: variables.$white;
+							text-transform: uppercase;
+							padding-left: 2rem;
+						}
+					}
+				}
+			}
+
+			.address{
+				p{
+					text-align: center;
+					color: variables.$light-grey;
+					// font-size: 1.8rem;
+					padding: 0 1.875rem;
+					// padding-bottom: 5rem;
+					margin-bottom: 2rem;
+					line-height: 2;
+
+					@include mixins.bp-large{
+						text-align: left;
+					}
+				}
+				
+			}
+
+			.contact{
+				p{
+					text-align: center;
+					color: variables.$light-grey;
+					// font-size: 1.8rem;
+					padding: 0 1.875rem;
+					padding-bottom: 5rem;
+					line-height: 2;
+
+					@include mixins.bp-large{
+						text-align: left;
+					}
+				}
+			}
+		}
 	}
 }
+
+
+
+// body {
+// 	background: white;
+// 	font-family: 'Jost', sans-serif;
+// 	font-weight: 400;
+// 	font-size: 1rem;
+// 	padding: 0 10.313rem;
+// }
+
+
+
+// .nav-bar{
+// 	display: flex;
+// }
+
+// ul li{
+// 	justify-content: space-between;
+// 	padding-right: 2.813rem;
+// 	font-size: 1rem;
+// }
+
+// h2{
+// 	font-weight: 500;
+// 	font-size: 2.5rem;
+// 	letter-spacing: 2px;
+
+// }
+
+// h3{
+// 	font-weight: 500;
+// 	font-size: 1.25rem;
+// 	letter-spacing: 5px;
+// }
+
+// .synergistic{
+// 	position: relative;
+// 	margin-top: 4.375rem;
+// 	padding: 9.063rem 33.75rem 9.063rem 5.938rem;
+// 	background-color: variables.$love;
+// 	border-radius: 15px;
+// }
+
+// .synergistic img{
+// 	position: absolute;
+// 	overflow: hidden;
+// 	top: 10%;
+// 	left: 63%;
+// 	transform: rotate(10deg);
+// }

@@ -83,12 +83,12 @@ time,
 mark,
 audio,
 video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -103,132 +103,458 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
-	content: none;
+  content: "";
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* 
-==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
-==============================================
-
-TABLE OF CONTENTS:
-
-0. Reset
-1. Main Layout
-2. Content
-
-==============================================
-*/
-/* 0. Reset ================================= */
-/* 
-If you want to add partials, use Sass Modules via @use:
-@use 'variables';
-
-Usage: partial-name.variable/mixin/function-name:
-background: variables.$primary-color;
-*/
+/* 0. Breakpoints ==================================== */
+/* 1. Colors ========================================= */
 /* 1. Main Layout ================================= */
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	background: #2e3032;
+  background: white;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
 }
-
-/* 2. Content ================================= */
-.floating-box {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
+body .big-top-nav {
+  display: flex;
+  padding: 0 1.875rem;
 }
-.floating-box .foreground {
-	position: relative;
-	z-index: 2;
-	transform: translateZ(100px);
+@media screen and (min-width: 992px) {
+  body .big-top-nav {
+    justify-content: space-between;
+    align-items: baseline;
+  }
 }
-.floating-box .background {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: white;
-	z-index: 1;
-	transition: 0.2s;
-	transform: translateX(20px) perspective(600px) rotateY(15deg);
+body .big-top-nav .nav-img {
+  display: flex;
+  align-items: baseline;
 }
-.floating-box:hover .background {
-	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+body .big-top-nav .nav-img h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.483rem;
 }
-.floating-box .logo {
-	position: absolute;
-	top: -30px;
-	width: 60px;
-	z-index: 2;
-	transform: translateZ(100px);
-	transition: 0.3s;
+body .big-top-nav .nav-img a img {
+  width: 100%;
 }
-.floating-box .logo:hover {
-	-ms-transform: rotate(-0.4turn);
-	    transform: rotate(-0.4turn);
+body .big-top-nav .nav-bar {
+  display: none;
 }
-.floating-box h1 {
-	font-weight: 700;
-	font-size: 22pt;
-	margin: 15px 0;
+@media screen and (min-width: 992px) {
+  body .big-top-nav .nav-bar {
+    display: flex;
+  }
 }
-.floating-box p {
-	color: #777;
-	line-height: 140%;
+body .big-top-nav .nav-bar li a {
+  text-decoration: none;
+  color: #1D1C1E;
+  text-transform: uppercase;
+  padding-left: 2rem;
 }
-.floating-box p.github {
-	font-size: 0.8em;
+body .synergistic {
+  position: relative;
+  background-color: #D30000;
+  width: 100%;
+  padding: 0 1.875rem;
+  padding-bottom: 30rem;
+  overflow: hidden;
 }
-.floating-box p.github a {
-	opacity: 0.2;
-	transition: 0.3s;
+@media screen and (min-width: 992px) {
+  body .synergistic {
+    position: relative;
+    margin-top: 4.375rem;
+    padding: 9.063rem 33.75rem 9.063rem 5.938rem;
+    padding-bottom: 5rem;
+    background-color: #D30000;
+    border-radius: 15px;
+  }
 }
-.floating-box p.github a:hover {
-	opacity: 1;
-	color: red;
+body .synergistic h2 {
+  padding-top: 2.188rem;
+  font-weight: 500;
+  font-size: 2.6rem;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  line-height: 1.1;
 }
-.floating-box code {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 0.8em;
-	opacity: 0.2;
+body .synergistic p {
+  padding-top: 2.188rem;
+  color: #FFFFFF;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+body .synergistic button {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  padding: 1.375rem;
+  margin-top: 2rem;
+  float: right;
+  margin-bottom: 3.5rem;
+}
+@media screen and (min-width: 992px) {
+  body .synergistic button {
+    float: left;
+  }
+}
+body .synergistic button a {
+  text-decoration: none;
+  color: #1D1C1E;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+body .synergistic img {
+  position: absolute;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  top: 60%;
+  left: 17%;
+}
+@media screen and (min-width: 992px) {
+  body .synergistic img {
+    position: absolute;
+    overflow: hidden;
+    top: 15%;
+    left: 70%;
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+body .wag {
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 0 1.875rem;
+  padding-top: 2.5rem;
+  padding-bottom: 6rem;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 992px) {
+  body .wag {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "web app" "web graphic";
+    gap: 1.5rem;
+  }
+}
+body .wag .design span {
+  color: red;
+}
+body .wag .web {
+  background-image: url(/dist/img/web-design.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  padding: 6.5rem;
+  margin-bottom: 1.25rem;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 992px) {
+  body .wag .web {
+    grid-area: web;
+    padding-top: 16rem;
+  }
+}
+body .wag .web h3 {
+  padding-bottom: 2.5rem;
+  font-size: 2.3rem;
+}
+body .wag .web a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+body .wag .app {
+  background-image: url(/dist/img/app-design.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  padding: 6.5rem;
+  margin-bottom: 1.25rem;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 992px) {
+  body .wag .app {
+    grid-area: app;
+  }
+}
+body .wag .app h3 {
+  padding-bottom: 2.5rem;
+  font-size: 2.3rem;
+}
+body .wag .app a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+body .wag .graphic {
+  background-image: url(/dist/img/graphic-design.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  padding: 6.5rem;
+  margin-bottom: 1.25rem;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 992px) {
+  body .wag .graphic {
+    grid-area: graphic;
+  }
+}
+@media screen and (min-width: 992px) {
+  body .wag .web {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+  }
+  body .wag .app {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  body .wag .graphic {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+}
+body .wag .graphic h3 {
+  padding-bottom: 2.5rem;
+  font-size: 2.3rem;
+}
+body .wag .graphic a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+body .frh {
+  text-align: center;
+  padding: 0 1.875rem;
+}
+@media screen and (min-width: 992px) {
+  body .frh {
+    display: flex;
+    align-items: baseline;
+  }
+}
+body .frh .facilitation {
+  padding-bottom: 2rem;
+}
+body .frh .facilitation h4 {
+  font-size: 1.25rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+body .frh .facilitation p {
+  line-height: 1.625;
+}
+body .frh .reinvention {
+  padding-bottom: 2rem;
+}
+body .frh .reinvention h4 {
+  font-size: 1.25rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+body .frh .reinvention p {
+  line-height: 1.625;
+}
+body .frh .handshakefulness {
+  padding-bottom: 2rem;
+}
+body .frh .handshakefulness h4 {
+  font-size: 1.25rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+body .frh .handshakefulness p {
+  line-height: 1.625;
+  margin-bottom: 23.438rem;
+}
+body footer {
+  position: relative;
+  background-color: #1D1C1E;
+}
+body footer .innovation {
+  position: absolute;
+  top: -25%;
+  text-align: center;
+  background-color: #D30000;
+  border-radius: 15px;
+  padding: 3.125rem 1.875rem;
+  margin: 0% 3%;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 992px) {
+  body footer .innovation {
+    display: flex;
+    padding: 4.5rem;
+    top: -30%;
+  }
+}
+body footer .innovation h2 {
+  font-size: 3rem;
+  padding-bottom: 2.5rem;
+}
+@media screen and (min-width: 992px) {
+  body footer .innovation h2 {
+    font-size: 4rem;
+    text-align: left;
+  }
+}
+body footer .innovation p {
+  font-size: 1.3rem;
+  padding-bottom: 3.125rem;
+  line-height: 1.563;
+}
+@media screen and (min-width: 992px) {
+  body footer .innovation p {
+    text-align: left;
+    font-size: 1.7rem;
+  }
+}
+body footer .innovation button {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  padding: 1.375rem;
+  margin-top: 2rem;
+}
+@media screen and (min-width: 992px) {
+  body footer .innovation button {
+    margin-left: 22.5rem;
+    justify-content: center;
+  }
+}
+body footer .innovation button a {
+  text-decoration: none;
+  color: #1D1C1E;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+body footer .footer-content {
+  padding: 0 1.875rem;
+  padding-top: 14.688rem;
+  padding-bottom: 4.063rem;
+}
+body footer .footer-content .big-top-footer-nav {
+  padding-top: 4.366rem;
+  -ms-grid-row-align: center;
+      align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 992px) {
+  body footer .footer-content .big-top-footer-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+body footer .footer-content .big-top-footer-nav .nav-logo {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #F1F3F5;
+  padding: 2rem 3rem;
+}
+body footer .footer-content .big-top-footer-nav .nav-logo h1 {
+  text-transform: uppercase;
+  color: #F1F3F5;
+  margin-left: 1.563rem;
+  font-size: 1.563rem;
+  letter-spacing: 5px;
+}
+body footer .footer-content .big-top-footer-nav .nav-bar {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media screen and (min-width: 992px) {
+  body footer .footer-content .big-top-footer-nav .nav-bar {
+    display: flex;
+  }
+}
+body footer .footer-content .big-top-footer-nav .nav-bar li {
+  padding-bottom: 2.188rem;
+}
+body footer .footer-content .big-top-footer-nav .nav-bar a {
+  text-decoration: none;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+}
+@media screen and (min-width: 992px) {
+  body footer .footer-content .big-top-footer-nav .nav-bar a {
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    padding-left: 2rem;
+  }
+}
+body footer .footer-content .address p {
+  text-align: center;
+  color: #F1F3F5;
+  padding: 0 1.875rem;
+  margin-bottom: 2rem;
+  line-height: 2;
+}
+@media screen and (min-width: 992px) {
+  body footer .footer-content .address p {
+    text-align: left;
+  }
+}
+body footer .footer-content .contact p {
+  text-align: center;
+  color: #F1F3F5;
+  padding: 0 1.875rem;
+  padding-bottom: 5rem;
+  line-height: 2;
+}
+@media screen and (min-width: 992px) {
+  body footer .footer-content .contact p {
+    text-align: left;
+  }
 }
 /*# sourceMappingURL=main.css.map */
