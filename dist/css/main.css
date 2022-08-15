@@ -465,6 +465,7 @@ body footer .innovation button {
   body footer .innovation button {
     margin-left: 22.5rem;
     justify-content: center;
+    padding: 10px;
   }
 }
 body footer .innovation button a {
